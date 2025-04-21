@@ -1,0 +1,18 @@
+pipeline {
+    agent{ 
+        label 'test-prod' 
+    }
+    stages {
+        stage('Test') {
+            steps {
+               
+                git branch: 'main', credentialsId: 'e8631ff8-18b3-4b5e-8ee1-68f74a9a6e6a', url: 'git@github.com:fuadshezan/OSTAD-Assignment-module-3.git'
+                
+                sh 'echo "Repo cloned successfully"'
+                
+                sh 'npm install'
+                
+            }
+        }
+    }
+}
